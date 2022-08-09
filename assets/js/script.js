@@ -131,62 +131,40 @@ p6= new Paciente ('Luisa', 25, '2043534-3', 'Esguince tobillo')
 consultorio1= new Consultorio ('Consultorio Ignacio Domeyko',[p1,p2,p3,p4,p5,p6]);
 
 //pruebas de visualizacion
-console.log(p1._getDiagnostico)
-console.log(consultorio1._getNombre)
-console.log(p4._getRut)
-console.log(p6._getEdad)
+//console.log(p1._getDiagnostico)
+//console.log(consultorio1._getNombre)
+//console.log(p4._getRut)
+//console.log(p6._getEdad)
 
 //establecer nuevos valores y prueba de visualizacion (solo para probar que es funcional)
 p3.setDiagnostico('lumbago')
-console.log(p3._getDiagnostico)
+//console.log(p3._getDiagnostico)
 p1.setRut('19670939-1')
-console.log(p1._getRut)
+//console.log(p1._getRut)
 p6.setEdad(50)
-console.log(p6._getEdad)
+//console.log(p6._getEdad)
 p4.setDiagnostico('psoriasis')
-console.log(p4._getDiagnostico)
+//console.log(p4._getDiagnostico)
 
 //visualizar todos los pacientes
-
+document.write(`Nombre de los pacientes para buscar: <br>`)
 Consultorio.prototype.mostrarATodos=function(){
      this._getPaciente.map((paciente)=>{
-         console.log(`Nombre: ${paciente._getNombre}`)
-         console.log(`Edad: ${paciente._getEdad}`)
-         console.log(`Rut: ${paciente._getRut}`)
-         console.log(`Diagnóstico: ${paciente._getDiagnostico}`)
-         console.log(``)
+         document.write (`${paciente._getNombre} <br>`)
      })
  }
- consultorio1.mostrarATodos()
+consultorio1.mostrarATodos()
 
- //visualizar a un paciente por su nombre
- Consultorio.prototype.mostrarAUno=function(nombre){
-     this._getPaciente
-     .filter((paciente)=>paciente._getNombre==nombre)
-     .map((paciente)=>{
-         let boton=document.getElementById('especifico')
-         especifico.addEventListener('click',()=>{
-             informacionEsp.innerHTML=`Nombre: ${paciente._getNombre} <br> Edad: ${paciente._getEdad} <br> Rut: ${paciente._getRut} <br> Diagnóstico: ${paciente._getDiagnostico} <br> `
-             let informacion=document.getElementById('informacionEsp')
-         })
-     })
- }
- 
- consultorio1.mostrarAUno('Consuelo')
- 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+document.getElementById('guardarPaciente').addEventListener('click', verPacientes)
+function verPacientes() {
+    let nombrePaciente = document.getElementById('pacientes').value
+   Consultorio.prototype.mostrarAUno = function (nombre) {
+        this._getPaciente
+        .filter((paciente) => paciente._getNombre === nombre)
+        .map((paciente) => {
+            document.getElementById('informacionEsp').innerHTML = `Nombre: ${paciente._getNombre} <br> Edad: ${paciente._getEdad} <br> Rut: ${paciente._getRut} <br> Diagnóstico: ${paciente._getDiagnostico} <br> `
+    })
+   }
+consultorio1.mostrarAUno(nombrePaciente)
+return nombrePaciente
+}

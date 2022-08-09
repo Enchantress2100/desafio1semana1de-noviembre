@@ -1,0 +1,2 @@
+En este trabajo se ocupó una función constructora de JavaScript mediante la cual se instanciaron nuevos objetos, que son la lista de pacientes disponibles a consultar. Se establecieron las propiedades, nombre, edad, rut y diagnóstico. Los nuevos objetos que hayan sido instanciados pueden ser consultados en el DOM a través del input usando el nombre, para extraer la información específica de ellos.
+<img src="assets/Captura de Pantalla 2022-08-09 a la(s) 08.13.20.png">
